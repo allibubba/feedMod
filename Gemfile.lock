@@ -136,6 +136,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  daemons
   jquery-rails
   rails (= 3.2.6)
   sass-rails (~> 3.2.3)
