@@ -19,7 +19,7 @@
 		  puts message
 		end
 
-		client.track("yankees") do |status|
+		client.track("#roundhouse") do |status|
 		  puts "#{status.text}"
 		  puts ""
 		end

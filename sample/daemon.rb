@@ -28,7 +28,7 @@ Rails.application.require_environment!
 	    	puts message
 	  	end
 
-	  	client.track("yankees") do |status|
+	  	client.track("#roundhouse") do |status|
 	  		puts "#{status.text}"
 	  		# puts "#{status.user.screen_name}"
 	    	t = Tweet.create!(:text => status.text, :user => status.user.screen_name)

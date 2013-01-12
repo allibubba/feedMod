@@ -7,8 +7,10 @@ gem 'rails', '3.2.6'
 require 'rubygems'
 gem 'sqlite3'
 gem 'yajl-ruby'
+gem 'twitter'
 gem 'tweetstream'
 gem 'daemons'
+gem 'foreman'
 
 # Gems used only for assets and not required
 # in production environments by default.
