@@ -17,8 +17,8 @@ namespace :twitter do
 		TweetStream.configure do |config|
 			config.consumer_key = 'WKkLcltTRfFdHqXFu0eZfQ'
     	config.consumer_secret = 'y2EleG9d3oPC3D2JmYmeFEM0wiupAUD9HL9PqmoRwFg'
-    	config.oauth_token = '103706229-HWHSKP6zyx24UHIWLmQI8lAikM6Du77by1pj2Wq4'
-    	config.oauth_token_secret = 'fmvGuJzoKjAjtsX5cIFmIHzgmjUnOnfCoWManYMNk'
+    	config.oauth_token = '103706229-M1TttOiTqQXLdf7PxxcIKHYw4K9aagrdcQxJm9RE'
+    	config.oauth_token_secret = 'YeWlNGVnwqdx1XZbCHi9W7lwFpBbe7ptWVaCNmTRN8'
     	config.auth_method = :oauth
   	end
   	# my twitter ID: 103706229
@@ -36,17 +36,16 @@ namespace :twitter do
 			
 
     	# now respond to this tweet auto style
-			Twitter.configure do |config|
-			  config.consumer_key = 'WKkLcltTRfFdHqXFu0eZfQ'
-	    	config.consumer_secret = 'y2EleG9d3oPC3D2JmYmeFEM0wiupAUD9HL9PqmoRwFg'
-	    	config.oauth_token = '103706229-HWHSKP6zyx24UHIWLmQI8lAikM6Du77by1pj2Wq4'
-	    	config.oauth_token_secret = 'fmvGuJzoKjAjtsX5cIFmIHzgmjUnOnfCoWManYMNk'
-			end
-			puts '*-*-*-*-*-*-*-*-*-*-*-*'
-			puts status
-			puts '*-*-*-*-*-*-*-*-*-*-*-*'
+      # authenticated as the app creator, need a way to auth another user
+      @app_client = Twitter::Client.new(
+        :consumer_key => "WKkLcltTRfFdHqXFu0eZfQ",
+        :consumer_secret => "y2EleG9d3oPC3D2JmYmeFEM0wiupAUD9HL9PqmoRwFg",
+        :oauth_token => "103706229-M1TttOiTqQXLdf7PxxcIKHYw4K9aagrdcQxJm9RE",
+        :oauth_token_secret => "YeWlNGVnwqdx1XZbCHi9W7lwFpBbe7ptWVaCNmTRN8"
+      )
 
-			Twitter.update("@#{status.user.screen_name} i'm right behind you")
+      Thread.new{@app_client.update("@#{status.user.screen_name} #{status.text} -great story bro")}
+
 		end
 		
 
