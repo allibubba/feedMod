@@ -43,8 +43,8 @@ namespace :twitter do
         :oauth_token => "103706229-M1TttOiTqQXLdf7PxxcIKHYw4K9aagrdcQxJm9RE",
         :oauth_token_secret => "YeWlNGVnwqdx1XZbCHi9W7lwFpBbe7ptWVaCNmTRN8"
       )
-
-      Thread.new{@app_client.update("@#{status.user.screen_name} #{status.text} -great story bro")}
+      msg = status.text.gsub("#roundhouse", "")
+      Thread.new{@app_client.update("@#{status.user.screen_name} #{msg} -great story bro")}
 
 		end
 		
