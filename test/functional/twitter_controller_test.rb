@@ -5,10 +5,4 @@ class TwitterControllerTest < ActionController::TestCase
     get :pull
     assert_response :success
   end
-
-  test "should get sort" do
-    get :sort
-    assert_response :success
-  end
-
 end
