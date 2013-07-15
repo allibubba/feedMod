@@ -7,3 +7,4 @@ script:
   - RAILS_ENV=development bundle exec rake --trace db:migrate test
 before_script:
   - RAILS_ENV=development bundle exec bundle update
+  - RAILS_ENV=development bundle exec rake twitter:stream
